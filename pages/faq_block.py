@@ -8,7 +8,6 @@ class FAQBlock(BasePage):
     def click_question_by_index(self, index: int):
         self.wait.until(EC.invisibility_of_element_located(BasePageLocators.overlay))
         button_locator = BasePageLocators.faq_question(index)
-        self.driver.save_screenshot(f"screenshot_before_click_index_{index}.png")
         self.click(button_locator)
 
     @allure.step("Получаем текст ответа на вопрос с индексом {index}")
