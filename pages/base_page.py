@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
-
+from locators.base_page_locators import BasePageLocators
 
 class BasePage:
 
@@ -11,7 +11,7 @@ class BasePage:
         self.wait = WebDriverWait(driver, 10)
         try:
             cookie_button = WebDriverWait(self.driver, 3).until(
-                EC.element_to_be_clickable((By.ID, "rcc-confirm-button"))
+                EC.element_to_be_clickable(BasePageLocators.cookie_button)
             )
             cookie_button.click()
         except:
@@ -43,17 +43,4 @@ class BasePage:
         element.clear()
         element.send_keys(text)
 
-    @allure.step("Кликаем по вопросу с индексом {index}")
-    def click_question_by_index(self, index: int):
-        overlay = (By.CLASS_NAME, "Order_Overlay__3KW-T")
-        self.wait.until(EC.invisibility_of_element_located(overlay))
-        button_locator = (By.ID, f"accordion__heading-{index}")
-        self.driver.save_screenshot(f"screenshot_before_click_index_{index}.png")
-        self.click(button_locator)
-
-    @allure.step("Получаем текст ответа на вопрос с индексом {index}")
-    def get_text_by_question(self, index: int):
-        text_locator = (By.ID, f"accordion__panel-{index}")
-        text_elem = self.wait.until(EC.visibility_of_element_located(text_locator))
-        return text_elem.text.replace('\n', ' ').strip()
 
