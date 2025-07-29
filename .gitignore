@@ -1,0 +1,32 @@
+# IntelliJ / PyCharm
+.idea/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.pyc
+
+# Virtual environments
+venv/
+env/
+
+# Logs
+*.log
+
+# System
+.DS_Store
+Thumbs.db
+
+# Selenium
+geckodriver.log
+# Created by pytest automatically.
+.pytest_cache/v
+screenshot_before_click_index_*.png
+
+# Allure results
+allure-results/
+allure-report/
