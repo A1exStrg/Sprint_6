@@ -8,6 +8,7 @@ __pycache__/
 *.pyo
 *.pyd
 *.pdb
+*.pyc
 
 # Virtual environments
 venv/
@@ -24,3 +25,8 @@ Thumbs.db
 geckodriver.log
 # Created by pytest automatically.
 .pytest_cache/v
+screenshot_before_click_index_*.png
+
+# Allure results
+allure-results/
+allure-report/
